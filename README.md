@@ -1,7 +1,54 @@
-# react-scripts
+# `react-dom`
 
-This package includes scripts and configuration used by [Create React App](https://github.com/facebook/create-react-app).<br>
-Please refer to its documentation:
+This package serves as the entry point to the DOM and server renderers for React. It is intended to be paired with the generic React package, which is shipped as `react` to npm.
 
-- [Getting Started](https://facebook.github.io/create-react-app/docs/getting-started) – How to create a new app.
-- [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
+## Installation
+
+```sh
+npm install react react-dom
+```
+
+## Usage
+
+### In the browser
+
+```js
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+class MyComponent extends React.Component {
+  render() {
+    return <div>Hello World</div>;
+  }
+}
+
+ReactDOM.render(<MyComponent />, node);
+```
+
+### On the server
+
+```js
+var React = require('react');
+var ReactDOMServer = require('react-dom/server');
+
+class MyComponent extends React.Component {
+  render() {
+    return <div>Hello World</div>;
+  }
+}
+
+ReactDOMServer.renderToString(<MyComponent />);
+```
+
+## API
+
+### `react-dom`
+
+- `findDOMNode`
+- `render`
+- `unmountComponentAtNode`
+
+### `react-dom/server`
+
+- `renderToString`
+- `renderToStaticMarkup`
